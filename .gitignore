@@ -1,7 +1,7 @@
-course-info.yaml
-course-remote-info.yaml
-.idea
+.idea/*
 Design/
 On the flip side/
 node_modules/
 Setting up/
+course-info.yaml
+course-remote-info.yaml
