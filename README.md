@@ -6,5 +6,5 @@ Platform : [Hyperskill](https://hyperskill.org/)
 Track : [Frontend Developer](https://hyperskill.org/tracks/5)  
 Project : [Flashcards](https://hyperskill.org/projects/115?track=5)  
 
-My Hyperskill Profile : [Yashvardhan Verma](https://hyperskill.org/profile/12696045)
+My Hyperskill Profile : [Yashvardhan](https://hyperskill.org/profile/12696045)
 
