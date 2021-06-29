@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flashcard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,58 +10,165 @@
     <div class="cards-container">
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Mexico</p></div>
-                <div class="back"><p>Mexico City</p></div>
+                <div class="front">
+                    <p>Mexico</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Mexico City</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Papua New Guinea</p></div>
-                <div class="back"><p>Port Moresby</p></div>
+                <div class="front">
+                    <p>Papua New Guinea</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Port Moresby</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Iceland</p></div>
-                <div class="back"><p>Reykjavík</p></div>
+                <div class="front">
+                    <p>Iceland</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Reykjavík</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>South Korea</p></div>
-                <div class="back"><p>Seoul</p></div>
+                <div class="front">
+                    <p>South Korea</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Seoul</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Sweden</p></div>
-                <div class="back"><p>Stockholm</p></div>
+                <div class="front">
+                    <p>Sweden</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Stockholm</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Georgia</p></div>
-                <div class="back"><p>Tbilisi</p></div>
+                <div class="front">
+                    <p>Georgia</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Tbilisi</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Honduras</p></div>
-                <div class="back"><p>Tegucigalpa</p></div>
+                <div class="front">
+                    <p>Honduras</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Tegucigalpa</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Tunisia</p></div>
-                <div class="back"><p>Tunis</p></div>
+                <div class="front">
+                    <p>Tunisia</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Tunis</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="filler">
-                <div class="front"><p>Austria</p></div>
-                <div class="back"><p>Vienna</p></div>
+                <div class="front">
+                    <p>Austria</p>
+                    <label>
+                        <input type="text" name="answer">
+                    </label>
+                </div>
+                <div class="back">
+                    <p>Vienna</p>
+                    <div class="actual-ans"></div>
+                </div>
             </div>
         </div>
     </div>
+
+<div class="submission">
+    <button type="submit" id="check">Check Answers</button>
+    <div class="score"></div>
+    <button type="submit" id="try-again">Try Again</button>
+</div>
+
+<script>
+    const check = document.getElementById('check');
+    const answer = document.getElementsByTagName('input');
+    const back = document.getElementsByClassName('back');
+    const actualAnswer = document.getElementsByClassName('actual-ans');
+
+    var count = 0;
+    check.onclick = function () {
+        for (let i = 0; i < 9; i++) {
+            document.getElementsByClassName('card')[i].style.transform = "rotateY(180deg)";
+            console.log(back[i].innerText);
+            if (answer[i].value.toLowerCase() === back[i].innerText.toLowerCase())
+            {
+                actualAnswer[i].innerText = "Correct";
+                actualAnswer[i].style.color = 'green';
+                count ++;
+
+            } else {
+                actualAnswer[i].innerText = "Incorrect";
+                actualAnswer[i].style.color = 'red';
+            }
+        }
+        document.getElementsByClassName('score')[0].innerText = `Score : ${count} / 9`;
+    }
+    document.getElementById('try-again').onclick = function () {
+        window.location.reload();
+    }
+</script>
 </body>
 </html>
